@@ -319,8 +319,8 @@ body{
   --nav:#525558;         /* Deep Navy for navbar (already set) */
   --hero:#EFF4F8;        /* Indigo 600 */
   --heroText:#000000;
-  --cta:#707070;         /* Amber 500 */
-  --ctaText:#0F172A;
+  --cta:#19193b;         /* Amber 500 */
+  --ctaText:#ffffff;
 }
 
 .hero{
@@ -366,3 +366,165 @@ header{
   background:#656666 !important;
   color:#020202 !important;
 }
+/* ======= Force horizontal EstateVerse Navbar ======= */
+.ev-navbar-fixed, .ev-navbar-fixed * {
+  all: unset;                      /* remove all inherited weird styles */
+  display: revert;                 /* restore normal display rules */
+  writing-mode: horizontal-tb !important;
+  transform: none !important;
+  box-sizing: border-box;
+}
+
+/* container */
+.ev-navbar-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background: #3e444a;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  padding: 0;
+}
+
+.ev-nav-wrap {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1150px;
+  height: 70px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* logo / brand */
+.ev-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+/* middle links */
+.ev-links {
+  display: flex;
+  gap: 24px;
+}
+.ev-links a {
+  color: rgba(255,255,255,.9);
+  text-decoration: none;
+  font-weight: 500;
+}
+.ev-links a:hover {
+  color: #fff;
+}
+.ev-active {
+  border-bottom: 2px solid #f8c851;
+  color: #fff !important;
+}
+
+/* right button */
+.ev-signin {
+  background: #fff;
+  color: #222;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+  box-shadow: 0 1px 6px rgba(0,0,0,.12);
+}
+
+/* responsive */
+@media (max-width: 768px){
+  .ev-nav-wrap {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  .ev-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ev-signin {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+/* ===== Final EstateVerse Navbar Styling (lighter blue theme) ===== */
+.ev-navbar-fixed {
+  background: #273043 !important;     /* 🔹 modern lighter blue-gray tone */
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.ev-nav-wrap {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1150px;
+  margin: 0 auto;
+  height: 70px;
+  padding: 0 20px;
+}
+
+.ev-brand {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.ev-links {
+  display: flex;
+  gap: 26px;
+}
+.ev-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-weight: 500;
+}
+.ev-links a:hover {
+  color: #ffffff;
+}
+.ev-active {
+  border-bottom: 2px solid #f8c851;
+  color: #ffffff !important;
+}
+
+.ev-signin {
+  background: #ffffff;
+  color: #273043;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  transition: background 0.2s, color 0.2s;
+}
+.ev-signin:hover {
+  background: #f8c851;
+  color: #273043;
+}
+
+/* mobile layout */
+@media (max-width: 768px) {
+  .ev-nav-wrap {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    gap: 8px;
+  }
+  .ev-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ev-signin {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
