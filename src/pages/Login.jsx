@@ -2,13 +2,31 @@ import { useDispatch } from "react-redux";
 import { login } from "../features/auth/authSlice";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import api from "../api";
 
 export default function Login(){
   const [email,setEmail] = useState(""); const [password,setPassword] = useState("");
   const d=useDispatch(); const nav=useNavigate();
-  const submit = async (e)=>{ e.preventDefault(); 
-    const r = await d(login({email,password})); 
-    if(r?.meta?.requestStatus==="fulfilled") nav("/"); };
+  const submit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await api.post("/auth/login", {
+      email,
+      password,
+    });
+
+    // token save (agar backend bhejta hai)
+    if (res.data.token) {
+      localStorage.setItem("token", res.data.token);
+    }
+
+    // redirect successful hogaya
+    nav("/");
+  } catch (err) {
+    console.log(err);
+    alert("Login failed");
+  }
+};
   return (
     <div className="container">
       <form className="card" onSubmit={submit}>
